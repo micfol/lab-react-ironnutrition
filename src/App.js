@@ -22,18 +22,20 @@ function App() {
     setFoods([...foods, newFoodEntry]);
   };
 
+  const [selectedFoods, setSelectedFoods] = useState([]);
+
   return (
     <div style={{ display: "inline-flex"}} className="App">
       <div>
         <FoodSearch filterFoods={filterFoods}  />
         {foods.map((food, index) => {
-          return <FoodBox key={index} food={food} />
+          return <FoodBox key={index} food={food} selectedFoods={selectedFoods} setSelectedFoods={setSelectedFoods} />
         })}
 
         <FoodForm addFoodHandler={addFoodHandler} />
       </div>
       <div>
-        <TodaysFoods />
+        <TodaysFoods selectedFoods={selectedFoods} />
       </div>
     </div>
   );

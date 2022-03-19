@@ -4,7 +4,6 @@ import { useState } from "react";
 export const FoodSearch = ({ filterFoods }) => {
    const [keyword, setKeyword] = useState("");
 
-
    const handleFilterFood = (e) => {
      setKeyword(e.target.value);
      filterFoods(e.target.value);
